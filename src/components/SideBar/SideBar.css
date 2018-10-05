@@ -1,0 +1,49 @@
+.sideBar {
+  background-color: rgb(220, 220, 220);
+  height: 100vh;
+  width: 19.8vw;
+  border-radius: 20px 0px 0px 0px;
+  border-right: 4px solid rgb(230, 0, 18);
+  box-shadow: 9px 0px 26px -8px rgba(0, 0, 0, 0.35);
+  position: fixed;
+  z-index: 1;
+  transition: 0.5s;
+
+  overflow: auto;
+}
+
+.sideHidden {
+  background-color: rgb(220, 220, 220);
+  height: 100vh;
+  width: 0;
+  border-radius: 20px 0px 0px 0px;
+  border-right: 4px solid rgb(230, 0, 18);
+  box-shadow: 9px 0px 26px -8px rgba(0, 0, 0, 0.35);
+  position: fixed;
+  z-index: 1;
+  transition: 0.5s;
+
+  overflow: auto;
+}
+
+.sideButton {
+  height: 42px;
+  width: 40px;
+  background-color: white;
+  margin: 10px 0px 0px 10px;
+  border-radius: 3px;
+  box-shadow: -6px -2px 5px 0px rgba(0, 0, 0, 0.28);
+  float: left;
+}
+
+.sideButton:hover {
+  height: 42px;
+  width: 40px;
+  background-color: white;
+  margin: 10px 0px 0px 10px;
+  padding: 2.5px;
+  border-radius: 3px;
+  box-shadow: -6px -2px 5px 0px rgba(0, 0, 0, 0.28);
+  cursor: pointer;
+  transition: 0.3s;
+}

@@ -1,0 +1,7 @@
+.userPass {
+  padding: 5px;
+  border: 2px solid #ccc;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  width: 15vw;
+}

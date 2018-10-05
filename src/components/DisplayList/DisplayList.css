@@ -1,0 +1,40 @@
+.character {
+  display: inline-block;
+  margin: 70px;
+  width: 13%;
+  height: auto;
+}
+
+.comments {
+  line-height: 28px;
+  color: white;
+  position: relative;
+  top: 200px;
+  left: 0px;
+  font-size: 13px;
+  text-align: center;
+  border-top: 1px solid rgb(0, 0, 0);
+  border-bottom: 1px solid rgb(0, 0, 0);
+  margin-top: 21px;
+  height: 47px;
+  box-shadow: 57px -8px 34px -9px rgba(0, 0, 0, 0.54);
+  border-radius: 20px 20px 0px;
+  padding: 5px;
+  font-weight: 500;
+}
+
+.comments:nth-child(even) {
+  background-color: white;
+  color: black;
+}
+.comments:nth-child(odd) {
+  background-color: rgb(230, 0, 18, 0.85);
+}
+
+.commentSection {
+  overflow: auto;
+  height: 579px;
+  box-shadow: inset -2px -13px 53px -3px rgba(0, 0, 0, 0.39);
+  box-shadow: 0px 21px 39px -11px rgba(0, 0, 0, 0.38);
+  border-bottom: 1px solid rgb(0, 0, 0);
+}

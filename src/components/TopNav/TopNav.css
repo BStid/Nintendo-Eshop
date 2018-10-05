@@ -1,0 +1,34 @@
+.topBar {
+  background-color: #e60012;
+  overflow: hidden;
+  position: fixed;
+  width: 98.5vw;
+  height: 5vw;
+  border-radius: 0px 0px 200px 10px;
+  box-shadow: 2px 3px 11px 1px rgba(0, 0, 0, 0.25);
+  z-index: 50;
+}
+.topBar a {
+  float: right;
+  color: #f2f2f2;
+  text-align: center;
+  padding: 20px 45px;
+  font-size: 17px;
+  font-weight: bold;
+  transition: 0.7s;
+}
+
+.topBar a:hover {
+  background-color: white;
+  border-radius: 5px;
+  color: black;
+  border: 3px solid whitesmoke;
+  letter-spacing: 5px;
+  box-shadow: 2px 3px 11px 1px rgba(0, 0, 0, 0.25);
+}
+
+.topBar a.active {
+  border: 3px solid whitesmoke;
+  letter-spacing: 5px;
+  box-shadow: 2px 3px 11px 1px rgba(0, 0, 0, 0.25);
+}
