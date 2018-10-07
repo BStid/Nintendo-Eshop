@@ -12,6 +12,7 @@ app.get("/api/characterlist", rc.toFill);
 app.get("/api/allcomments", rc.allComments);
 app.post("/api/comments", rc.toAdd);
 app.put("/api/editcomments/:id", rc.toUpdate);
+app.delete("/api/delete/:deletecomment", rc.toDelete);
 
 const port = 3005;
 app.listen(port, () => {

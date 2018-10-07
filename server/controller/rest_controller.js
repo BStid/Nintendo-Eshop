@@ -1,7 +1,7 @@
 const axios = require("axios");
 
 let fillMeArray = [];
-let fillComments = ["Comment Here!"];
+let fillComments = ["Hello! Please Add a Message Below!"];
 
 toUpdate = (req, res) => {
   console.log(req.params.id, req.body);
@@ -31,4 +31,17 @@ toAdd = (req, res) => {
   res.status(200).send(fillComments);
 };
 
-module.exports = { toFill, toUpdate, toAdd, allComments, toUpdate };
+toDelete = (req, res) => {
+  console.log(req.params.deletecomment);
+  let deleted = fillComments.splice(req.params.deletecomment, 1);
+  console.log(deleted);
+  res
+    .status(200)
+    .send(fillComments)
+    .catch(error => {
+      alert(error);
+      res.status(500);
+    });
+};
+
+module.exports = { toFill, toUpdate, toAdd, allComments, toUpdate, toDelete };

@@ -14,10 +14,12 @@ class App extends Component {
       character: [],
       isLoading: true,
       isOpen: false,
-      sideBar: "sideHidden"
+      sideBar: "sideHidden",
+      filteredInput: ""
     };
     this.login = this.login.bind(this);
     this.openClose = this.openClose.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   login() {
@@ -35,6 +37,11 @@ class App extends Component {
       this.setState({ isOpen: true, sideBar: "sideBar" });
     }
   }
+
+  handleChange(value, key) {
+    console.log({ [key]: value });
+    this.setState({ [key]: value });
+  }
   componentDidMount() {
     axios.get("http://localhost:3005/api/characterlist").then(response => {
       console.log(response.data);
@@ -46,11 +53,20 @@ class App extends Component {
     console.log(this.state.character);
     return (
       <div className="App">
-        <TopNav login={this.login} openClose={this.openClose} />
+        <TopNav
+          login={this.login}
+          openClose={this.openClose}
+          filteredInput={this.state.filteredInput}
+          handleChange={this.handleChange}
+        />
         <SideBar sideBar={this.state.sideBar} />
         {/* //DisplayList is in 'IsLoading' */}
-        <IsLoading list={this.state.character} loading={this.state.isLoading} />
-        <LowerBoxModal modal={this.state.modal} />
+        <IsLoading
+          list={this.state.character}
+          loading={this.state.isLoading}
+          filteredInput={this.state.filteredInput}
+        />
+        <LowerBoxModal modal={this.state.modal} cartClose={this.login} />
       </div>
     );
   }

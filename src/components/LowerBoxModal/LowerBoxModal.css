@@ -1,5 +1,6 @@
 .hidden {
   display: none;
+  transition: 0.4s;
 }
 .modal {
   position: fixed; /* Stay in place */
@@ -49,6 +50,7 @@
 
 .modal-body {
   padding: 2px 16px;
+  transition: 0.4s;
 }
 
 .modal-footer {

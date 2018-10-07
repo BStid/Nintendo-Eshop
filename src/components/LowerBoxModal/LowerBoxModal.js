@@ -1,5 +1,4 @@
 import React from "react";
-import InputBox from "../InputBox/InputBox";
 import "./LowerBoxModal.css";
 
 function LowerBoxModal(props) {
@@ -7,9 +6,10 @@ function LowerBoxModal(props) {
     <div id="myModal" className={props.modal}>
       <div className="modal-content">
         <div className="modal-header">
-          <span className="close">&times;</span>
+          <span className="close" onClick={props.cartClose}>
+            &times;
+          </span>
           <h2>Cart List</h2>
-          <InputBox handleChange={props.handleChange} />
         </div>
         <div className="modal-body" />
         <div className="modal-footer">

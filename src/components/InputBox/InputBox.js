@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import axios from "axios";
-import IsLoadingComments from "../IsLoading/IsLoadingComments";
 import DisplayComments from "../DisplayList/DisplayComments";
 import "./Input.css";
 
@@ -18,6 +17,7 @@ class InputBox extends Component {
     this.pressEnter = this.pressEnter.bind(this);
     this.pressEdit = this.pressEdit.bind(this);
     this.editMessage = this.editMessage.bind(this);
+    this.removeComment = this.removeComment.bind(this);
   }
   handleChange(value, key) {
     console.log({ [key]: value });
@@ -49,10 +49,14 @@ class InputBox extends Component {
         this.setState({ displayedComments: response.data });
       });
   }
+  removeComment(id) {
+    axios.delete("http://localhost:3005/api/delete/" + id).then(response => {
+      this.setState({ displayedComments: response.data });
+    });
+  }
   componentDidMount() {
     console.log("Component has been mounted...");
     axios.get("http://localhost:3005/api/allcomments").then(response => {
-      console.log("Here we go", response.data);
       this.setState({ displayedComments: response.data, isLoading: false });
     });
   }
@@ -66,6 +70,7 @@ class InputBox extends Component {
           editMessage={this.editMessage}
           pressEdit={this.pressEdit}
           handleChange={this.handleChange}
+          removeComment={this.removeComment}
         />
         <input
           placeholder="Leave a Comment..."

@@ -1,7 +1,42 @@
+.addButton {
+  font-size: 14px;
+  border-radius: 80px;
+  box-shadow: 20px 21px 53px -19px rgba(0, 0, 0, 0.43);
+  left: 10px;
+  width: 100%;
+  background-color: #e60012;
+  border: none;
+  color: white;
+  padding: 16px 32px;
+  text-decoration: none;
+  margin: 4px 2px;
+  cursor: pointer;
+  /* border-top: 2px solid rgb(230, 0, 18, 0.85);
+  border-bottom: 1px solid; */
+  border: 3px solid white;
+  outline: none;
+  transition: 0.4s;
+  letter-spacing: 5px;
+}
+
+.addButton:hover {
+  background-color: white;
+  color: black;
+  border: 3px solid #e60012;
+  letter-spacing: 5px;
+  box-shadow: 2px 3px 11px 1px rgba(0, 0, 0, 0.25);
+}
 .character {
   display: inline-block;
   margin: 70px;
   width: 13%;
+  height: auto;
+}
+.characterName {
+  font-size: 20px;
+}
+.charImg {
+  width: 100%;
   height: auto;
 }
 
@@ -9,9 +44,11 @@
   line-height: 28px;
   color: white;
   position: relative;
-  top: 200px;
+  margin-right: 10px;
+  margin-left: 12px;
+  top: 36%;
   left: 0px;
-  font-size: 13px;
+  font-size: 14px;
   text-align: center;
   border-top: 1px solid rgb(0, 0, 0);
   border-bottom: 1px solid rgb(0, 0, 0);
@@ -24,7 +61,7 @@
 }
 
 .comments:nth-child(even) {
-  background-color: white;
+  background-color: rgb(255, 255, 255, 0.8);
   color: black;
 }
 .comments:nth-child(odd) {
@@ -33,8 +70,23 @@
 
 .commentSection {
   overflow: auto;
-  height: 579px;
+  height: 88vh;
   box-shadow: inset -2px -13px 53px -3px rgba(0, 0, 0, 0.39);
   box-shadow: 0px 21px 39px -11px rgba(0, 0, 0, 0.38);
   border-bottom: 1px solid rgb(0, 0, 0);
+}
+
+.deleteButton {
+  height: 20px;
+  width: 20px;
+  border-radius: 100%;
+  position: absolute;
+  top: -10px;
+  right: 0px;
+  background-color: white;
+}
+
+.deleteIcon {
+  height: 20px;
+  width: 20px;
 }
