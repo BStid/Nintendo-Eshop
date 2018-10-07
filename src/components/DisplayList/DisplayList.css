@@ -32,6 +32,12 @@
   width: 13%;
   height: auto;
 }
+@media only screen and (min-width: 1300px) {
+  .character {
+    position: relative;
+    left: 10%;
+  }
+}
 .characterName {
   font-size: 20px;
 }

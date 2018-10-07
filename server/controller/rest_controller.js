@@ -1,8 +1,17 @@
 const axios = require("axios");
 
 let fillMeArray = [];
-let fillComments = ["Hello! Please Add a Message Below!"];
+let fillComments = [
+  "I want all of these Amiibo!",
+  "Are you going to buy the new Amiibo series?"
+];
+let cartItems = [];
+let pullCart = [];
 
+pullCartList = (req, res) => {
+  // console.log("pullCartList", cartItems);
+  res.status(200).send(cartItems);
+};
 toUpdate = (req, res) => {
   console.log(req.params.id, req.body);
   fillComments.splice(req.params.id, 1, req.body.comment);
@@ -26,9 +35,12 @@ allComments = (req, res) => {
 };
 
 toAdd = (req, res) => {
-  // console.log(req.body);
   fillComments.push(req.body.comment);
   res.status(200).send(fillComments);
+};
+addToCart = (req, res) => {
+  cartItems.push(req.body.cartItems.image);
+  res.status(200).send(cartItems);
 };
 
 toDelete = (req, res) => {
@@ -44,4 +56,13 @@ toDelete = (req, res) => {
     });
 };
 
-module.exports = { toFill, toUpdate, toAdd, allComments, toUpdate, toDelete };
+module.exports = {
+  toFill,
+  toUpdate,
+  toAdd,
+  allComments,
+  toUpdate,
+  toDelete,
+  addToCart,
+  pullCartList
+};

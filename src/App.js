@@ -10,25 +10,18 @@ class App extends Component {
   constructor() {
     super();
     this.state = {
-      modal: "hidden",
       character: [],
       isLoading: true,
       isOpen: false,
       sideBar: "sideHidden",
-      filteredInput: ""
+      filteredInput: "",
+      modal: "hidden"
     };
-    this.login = this.login.bind(this);
     this.openClose = this.openClose.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.login = this.login.bind(this);
   }
 
-  login() {
-    if (this.state.modal === "hidden") {
-      this.setState({ modal: "modal" });
-    } else {
-      this.setState({ modal: "hidden" });
-    }
-  }
   openClose() {
     console.log("Button Clicked");
     if (this.state.isOpen === true) {
@@ -41,6 +34,13 @@ class App extends Component {
   handleChange(value, key) {
     console.log({ [key]: value });
     this.setState({ [key]: value });
+  }
+  login() {
+    if (this.state.modal === "hidden") {
+      this.setState({ modal: "modal" });
+    } else {
+      this.setState({ modal: "hidden" });
+    }
   }
   componentDidMount() {
     axios.get("http://localhost:3005/api/characterlist").then(response => {

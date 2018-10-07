@@ -20,7 +20,7 @@
 }
 @media only screen and (max-width: 1280px) {
   .sendButton {
-    bottom: 0%;
+    bottom: -2%;
     padding: 0px;
     height: 40px;
   }
@@ -44,7 +44,7 @@
   z-index: 1;
   transition: 0.5s;
 
-  overflow: auto;
+  overflow: hidden;
 }
 
 .sideHidden {

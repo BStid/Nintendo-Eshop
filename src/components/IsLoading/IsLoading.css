@@ -11,4 +11,23 @@
   width: 168px;
   top: 201px;
   left: 45%;
+  animation: sk-rotateplane 2.2s infinite ease-in-out;
+}
+
+@keyframes sk-rotateplane {
+  0% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+  25% {
+    transform: perspective(120px) rotateX(-180.1deg) rotateY(0deg);
+  }
+  50% {
+    transform: perspective(120px) rotateX(-180deg) rotateY(-180deg);
+  }
+  75% {
+    transform: perspective(120px) rotate(0deg) rotateY(-180deg);
+  }
+  100% {
+    transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
 }

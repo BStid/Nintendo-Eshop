@@ -10,7 +10,6 @@ export default function SideBar(props) {
         <img src={Image} className="marioIcon" alt="Its-A-Me!" />
         <h3 className="editText">Click a Message to Edit!</h3>
         <InputBox />
-        <button className="sendButton"> Send </button>
       </aside>
     </div>
   );

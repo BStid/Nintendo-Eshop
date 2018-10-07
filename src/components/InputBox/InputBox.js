@@ -18,6 +18,7 @@ class InputBox extends Component {
     this.pressEdit = this.pressEdit.bind(this);
     this.editMessage = this.editMessage.bind(this);
     this.removeComment = this.removeComment.bind(this);
+    this.sendMessage = this.sendMessage.bind(this);
   }
   handleChange(value, key) {
     console.log({ [key]: value });
@@ -40,6 +41,16 @@ class InputBox extends Component {
       this.editMessage(id, comment);
     }
   }
+  sendMessage() {
+    axios
+      .post(`http://localhost:3005/api/comments`, {
+        comment: this.state.comments
+      })
+      .then(response => {
+        this.setState({ displayedComments: response.data });
+      });
+  }
+
   editMessage(id, comment) {
     console.log("editMessage:", id, comment);
     axios
@@ -79,6 +90,10 @@ class InputBox extends Component {
           onChange={e => this.handleChange(e.target.value, "comments")}
           onKeyDown={e => this.pressEnter(e)}
         />
+        <button className="sendButton" onClick={this.sendMessage}>
+          {" "}
+          Send{" "}
+        </button>
       </div>
     );
     // return <div className="input" />;

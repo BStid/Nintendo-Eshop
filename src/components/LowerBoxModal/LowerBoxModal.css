@@ -44,6 +44,7 @@
 .modal-header {
   padding: 2px 16px;
   background-color: #e60012;
+  font-size: 20px;
   color: white;
   box-shadow: 12px -3px 17px 0px rgba(0, 0, 0, 0.19);
 }
@@ -55,11 +56,16 @@
 
 .modal-footer {
   padding: 2px 16px;
-  background-color: #e60012;
+  background-color: white;
   color: white;
-  height: 150px;
+  height: 0px;
 }
 
+.cartItem {
+  height: auto;
+  width: 8%;
+  padding: 0px 45px;
+}
 /* Add Animation */
 @-webkit-keyframes slideIn {
   from {
