@@ -1,0 +1,27 @@
+.outerSpecialBox {
+  height: 500px;
+  width: 500px;
+  background-color: rgb(230, 0, 18);
+  overflow: hidden;
+  border-radius: 8%;
+  border-top: 2px rgb(255, 255, 255) solid;
+  border-bottom: 2px rgb(255, 255, 255) solid;
+  position: fixed;
+  top: 25%;
+  left: 35%;
+  z-index: 10;
+  box-shadow: inset -22px 10px 156px -28px rgba(0, 0, 0, 0.39);
+  transition: 0.7s;
+}
+.hiddenSpecial {
+  height: 0px;
+  width: 0px;
+}
+.spokenText {
+  font-size: 31px;
+  color: rgb(255, 255, 255);
+  font-family: "Anton", sans-serif;
+  position: absolute;
+  top: 158px;
+  text-align: center;
+}

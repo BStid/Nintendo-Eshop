@@ -5,6 +5,8 @@ import axios from "axios";
 import IsLoading from "./components/IsLoading/IsLoading";
 import TopNav from "./components/TopNav/TopNav";
 import SideBar from "./components/SideBar/SideBar";
+// import IsLoadingPoke from "./components/IsLoading/IsLoadingPoke";
+import PokeShop from "./components/PokeShop/PokeShop";
 
 class App extends Component {
   constructor() {
@@ -15,11 +17,16 @@ class App extends Component {
       isOpen: false,
       sideBar: "sideHidden",
       filteredInput: "",
-      modal: "hidden"
+      modal: "hidden",
+      pokePage: false,
+      pokeClassActive: "",
+      homeClassActive: "active",
+      specialClass: "hiddenSpecial"
     };
     this.openClose = this.openClose.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.login = this.login.bind(this);
+    this.togglePage = this.togglePage.bind(this);
   }
 
   openClose() {
@@ -42,15 +49,48 @@ class App extends Component {
       this.setState({ modal: "hidden" });
     }
   }
+  togglePage() {
+    console.log("togglePage activated");
+    if (this.state.pokePage === false) {
+      this.setState({
+        pokePage: true,
+        pokeClassActive: "active",
+        homeClassActive: ""
+      });
+    } else {
+      this.setState({
+        pokePage: false,
+        pokeClassActive: "",
+        homeClassActive: "active"
+      });
+    }
+  }
   componentDidMount() {
     axios.get("http://localhost:3005/api/characterlist").then(response => {
       console.log(response.data);
       this.setState({ character: response.data, isLoading: false });
     });
   }
-
+  toggleClassName = () => {
+    this.state.specialClass === "hiddenSpecial"
+      ? this.setState({ specialClass: "outerSpecialBox" })
+      : this.setState({ specialClass: "hiddenSpecial" });
+  };
   render() {
     console.log(this.state.character);
+    let currentPage;
+    if (this.state.pokePage) {
+      currentPage = <PokeShop filteredInput={this.state.filteredInput} />;
+    } else {
+      currentPage = (
+        <IsLoading
+          list={this.state.character}
+          loading={this.state.isLoading}
+          filteredInput={this.state.filteredInput}
+        />
+      );
+    }
+
     return (
       <div className="App">
         <TopNav
@@ -58,14 +98,22 @@ class App extends Component {
           openClose={this.openClose}
           filteredInput={this.state.filteredInput}
           handleChange={this.handleChange}
+          togglePage={this.togglePage}
+          pokeClassActive={this.state.pokeClassActive}
+          homeClassActive={this.state.homeClassActive}
         />
-        <SideBar sideBar={this.state.sideBar} />
+        <SideBar
+          sideBar={this.state.sideBar}
+          toggleClassName={this.toggleClassName}
+          specialClass={this.state.specialClass}
+        />
         {/* //DisplayList is in 'IsLoading' */}
-        <IsLoading
+        {/* <IsLoading
           list={this.state.character}
           loading={this.state.isLoading}
           filteredInput={this.state.filteredInput}
-        />
+        /> */}
+        {currentPage}
         <LowerBoxModal modal={this.state.modal} cartClose={this.login} />
       </div>
     );

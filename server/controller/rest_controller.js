@@ -6,16 +6,35 @@ let fillComments = [
   "Are you going to buy the new Amiibo series?"
 ];
 let cartItems = [];
-let pullCart = [];
+let pokeList = [];
 
 pullCartList = (req, res) => {
-  // console.log("pullCartList", cartItems);
+  console.log("pullCartList", cartItems);
   res.status(200).send(cartItems);
 };
 toUpdate = (req, res) => {
   console.log(req.params.id, req.body);
   fillComments.splice(req.params.id, 1, req.body.comment);
   res.status(200).send(fillComments);
+};
+
+getVerse = (req, res) => {
+  axios.get("https://bible-api.com/john 3:16").then(response => {
+    console.log(response.data);
+    res.status(200).send(response.data.text);
+  });
+};
+fillPokeList = (req, res) => {
+  axios
+    .get("https://api.pokemontcg.io/v1/cards?page=98")
+    .then(response => {
+      pokeList = response.data.cards;
+      res.status(200).send(pokeList);
+    })
+    .catch(error => {
+      alert(error);
+      res.status(500);
+    });
 };
 toFill = (req, res) => {
   axios
@@ -39,7 +58,8 @@ toAdd = (req, res) => {
   res.status(200).send(fillComments);
 };
 addToCart = (req, res) => {
-  cartItems.push(req.body.cartItems.image);
+  console.log(req.query.cartItems);
+  cartItems.push(req.query.cartItems);
   res.status(200).send(cartItems);
 };
 
@@ -56,6 +76,10 @@ toDelete = (req, res) => {
     });
 };
 
+deleteCartItem = (req, res) => {
+  cartItems.splice(req.params.deletecartitem, 1);
+  res.status(200).send(cartItems);
+};
 module.exports = {
   toFill,
   toUpdate,
@@ -64,5 +88,8 @@ module.exports = {
   toUpdate,
   toDelete,
   addToCart,
-  pullCartList
+  pullCartList,
+  deleteCartItem,
+  fillPokeList,
+  getVerse
 };

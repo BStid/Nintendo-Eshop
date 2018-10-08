@@ -1,3 +1,11 @@
+.refreshIcon {
+  height: 20px;
+  width: auto;
+  cursor: pointer;
+  position: absolute;
+  top: 11px;
+  right: 4%;
+}
 .hidden {
   display: none;
   transition: 0.4s;
@@ -64,7 +72,10 @@
 .cartItem {
   height: auto;
   width: 8%;
+}
+.cartPlaceHolder {
   padding: 0px 45px;
+  display: inline;
 }
 /* Add Animation */
 @-webkit-keyframes slideIn {

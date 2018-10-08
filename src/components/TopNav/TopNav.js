@@ -9,10 +9,25 @@ export default function TopNav(props) {
         My Cart
       </a>
       <a href="#contact">Contact</a>
-      <a href="#about">About</a>
-      <a className="active" href="#home">
+      <a
+        className={props.pokeClassActive}
+        href="#PokeShop"
+        onClick={props.togglePage}
+      >
+        PokéShop
+      </a>
+      <a
+        className={props.homeClassActive}
+        href="#home"
+        onClick={props.togglePage}
+      >
         Home
       </a>
+      <img
+        src="https://s1.thcdn.com/design-assets/products/11244941/pic3.png"
+        className="titleImage"
+        alt="title"
+      />
       <input
         type="text"
         className="filterBar"

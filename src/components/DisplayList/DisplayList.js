@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import "./DisplayList.css";
 import LogoImage from "./LogoImage/LogoImage";
-// import LowerBoxModal from "../LowerBoxModal/LowerBoxModal";
 import AddToCartButton from "./AddToCartButton";
 
 class DisplayList extends Component {
@@ -36,12 +35,7 @@ class DisplayList extends Component {
           </div>
         );
       });
-    return (
-      <div>
-        {displayList}
-        {/* <LowerBoxModal modal={this.state.modal} cartClose={this.login} /> */}
-      </div>
-    );
+    return <div>{displayList}</div>;
   }
 }
 

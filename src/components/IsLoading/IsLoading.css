@@ -14,6 +14,15 @@
   animation: sk-rotateplane 2.2s infinite ease-in-out;
 }
 
+.loadingPoke {
+  position: fixed;
+  height: auto;
+  width: 108px;
+  top: 201px;
+  left: 46.5%;
+  animation: ball-rotate 1.7s infinite ease-in-out;
+}
+
 @keyframes sk-rotateplane {
   0% {
     transform: perspective(120px) rotateX(0deg) rotateY(0deg);
@@ -29,5 +38,14 @@
   }
   100% {
     transform: perspective(120px) rotateX(0deg) rotateY(0deg);
+  }
+}
+
+@keyframes ball-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
   }
 }

@@ -99,3 +99,14 @@
   font-size: 10px;
   font-weight: 100;
 }
+
+.hide {
+  height: 30px;
+  width: 30px;
+  background-color: rgb(220, 220, 220);
+  cursor: pointer;
+  position: absolute;
+  top: 7%;
+  left: 1px;
+  z-index: 11;
+}
