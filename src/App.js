@@ -21,7 +21,8 @@ class App extends Component {
       pokePage: false,
       pokeClassActive: "",
       homeClassActive: "active",
-      specialClass: "hiddenSpecial"
+      specialClass: "hiddenSpecial",
+      specialText: "hiddenSpeical"
     };
     this.openClose = this.openClose.bind(this);
     this.handleChange = this.handleChange.bind(this);
@@ -73,8 +74,14 @@ class App extends Component {
   }
   toggleClassName = () => {
     this.state.specialClass === "hiddenSpecial"
-      ? this.setState({ specialClass: "outerSpecialBox" })
-      : this.setState({ specialClass: "hiddenSpecial" });
+      ? this.setState({
+          specialClass: "outerSpecialBox",
+          specialText: "spokenText"
+        })
+      : this.setState({
+          specialClass: "hiddenSpecial",
+          specialText: "hiddenSpecial"
+        });
   };
   render() {
     console.log(this.state.character);
@@ -106,6 +113,7 @@ class App extends Component {
           sideBar={this.state.sideBar}
           toggleClassName={this.toggleClassName}
           specialClass={this.state.specialClass}
+          specialText={this.state.specialText}
         />
         {/* //DisplayList is in 'IsLoading' */}
         {/* <IsLoading

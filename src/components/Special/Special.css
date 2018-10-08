@@ -16,6 +16,7 @@
 .hiddenSpecial {
   height: 0px;
   width: 0px;
+  font-size: 0px;
 }
 .spokenText {
   font-size: 31px;
@@ -24,4 +25,5 @@
   position: absolute;
   top: 158px;
   text-align: center;
+  transition: 0.7;
 }

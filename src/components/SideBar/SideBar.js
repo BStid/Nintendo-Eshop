@@ -13,7 +13,10 @@ export default function SideBar(props) {
         <h3 className="editText">Click a Message to Edit!</h3>
         <InputBox />
       </aside>
-      <Special specialClass={props.specialClass} />
+      <Special
+        specialClass={props.specialClass}
+        specialText={props.specialText}
+      />
     </div>
   );
 }

@@ -19,7 +19,7 @@ class Special extends Component {
   render() {
     return (
       <div className={this.props.specialClass}>
-        <h1 className="spokenText">
+        <h1 className={this.props.specialText}>
           {this.state.speak} <br /> John 3:16
         </h1>
       </div>
