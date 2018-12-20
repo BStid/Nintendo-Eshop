@@ -11,7 +11,7 @@ class Special extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3005/api/bible").then(response => {
+    axios.get("/api/bible").then(response => {
       console.log(response.data);
       this.setState({ speak: response.data });
     });

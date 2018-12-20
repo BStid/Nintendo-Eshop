@@ -14,7 +14,7 @@ class PokeShop extends Component {
   }
 
   componentDidMount() {
-    axios.get("http://localhost:3005/api/pokelist").then(response => {
+    axios.get("/api/pokelist").then(response => {
       console.log(response.data);
       this.setState({ character: response.data, isLoading: false });
     });

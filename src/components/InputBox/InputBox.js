@@ -28,7 +28,7 @@ class InputBox extends Component {
   pressEnter(eventKey) {
     if (eventKey.keyCode === 13) {
       axios
-        .post(`http://localhost:3005/api/comments`, {
+        .post(`/api/comments`, {
           comment: this.state.comments
         })
         .then(response => {
@@ -43,7 +43,7 @@ class InputBox extends Component {
   }
   sendMessage() {
     axios
-      .post(`http://localhost:3005/api/comments`, {
+      .post(`/api/comments`, {
         comment: this.state.comments
       })
       .then(response => {
@@ -53,21 +53,19 @@ class InputBox extends Component {
 
   editMessage(id, comment) {
     console.log("editMessage:", id, comment);
-    axios
-      .put(`http://localhost:3005/api/editcomments/${id}`, { comment })
-      .then(response => {
-        console.log(response.data);
-        this.setState({ displayedComments: response.data });
-      });
+    axios.put(`/api/editcomments/${id}`, { comment }).then(response => {
+      console.log(response.data);
+      this.setState({ displayedComments: response.data });
+    });
   }
   removeComment(id) {
-    axios.delete("http://localhost:3005/api/delete/" + id).then(response => {
+    axios.delete("/api/delete/" + id).then(response => {
       this.setState({ displayedComments: response.data });
     });
   }
   componentDidMount() {
     console.log("Component has been mounted...");
-    axios.get("http://localhost:3005/api/allcomments").then(response => {
+    axios.get("/api/allcomments").then(response => {
       this.setState({ displayedComments: response.data, isLoading: false });
     });
   }

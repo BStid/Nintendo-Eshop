@@ -67,7 +67,7 @@ class App extends Component {
     }
   }
   componentDidMount() {
-    axios.get("http://localhost:3005/api/characterlist").then(response => {
+    axios.get("/api/characterlist").then(response => {
       console.log(response.data);
       this.setState({ character: response.data, isLoading: false });
     });

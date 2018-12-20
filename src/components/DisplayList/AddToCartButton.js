@@ -11,18 +11,14 @@ class AddToCartButton extends Component {
     this.addToCart = this.addToCart.bind(this);
   }
   // addToCart() {
-  //   axios.post(`http://localhost:3005/api/cartItems`, {
+  //   axios.post(`/api/cartItems`, {
   //     cartItems: this.props.selectedItem
   //   });
   // }
 
   addToCart() {
     console.log("addToCart", this.props.selectedItem);
-    axios.post(
-      `http://localhost:3005/api/cartItems?cartItems=${
-        this.props.selectedItem.image
-      }`
-    );
+    axios.post(`/api/cartItems?cartItems=${this.props.selectedItem.image}`);
   }
   render() {
     return (

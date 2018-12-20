@@ -13,9 +13,7 @@ class AddToCartPokeButton extends Component {
 
   addPokeToCart() {
     console.log("addToPokeCart", this.props.selectedItem);
-    axios.post(
-      `http://localhost:3005/api/cartItems?cartItems=${this.props.selectedItem}`
-    );
+    axios.post(`/api/cartItems?cartItems=${this.props.selectedItem}`);
   }
   render() {
     return (

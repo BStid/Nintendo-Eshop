@@ -14,18 +14,16 @@ class LowerBoxModal extends Component {
   }
   retreiveList() {
     console.log("running retreiveList");
-    axios.get("http://localhost:3005/api/cartItems").then(response => {
+    axios.get("/api/cartItems").then(response => {
       console.log("retreiveList", response.data);
       this.setState({ cartList: response.data });
     });
   }
   removeCart(id) {
     console.log("RemoveCart function called");
-    axios
-      .delete("http://localhost:3005/api/deleteCart/" + id)
-      .then(response => {
-        this.setState({ cartList: response.data });
-      });
+    axios.delete("/api/deleteCart/" + id).then(response => {
+      this.setState({ cartList: response.data });
+    });
   }
   componentDidMount() {
     this.retreiveList();

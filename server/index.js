@@ -2,7 +2,7 @@ const express = require("express");
 const { json } = require("body-parser");
 const cors = require("cors");
 const rc = require("./controller/rest_controller");
-
+const port = process.env.PORT || 3005;
 let app = express();
 
 app.use(json());
@@ -19,7 +19,8 @@ app.put("/api/editcomments/:id", rc.toUpdate);
 app.delete("/api/delete/:deletecomment", rc.toDelete);
 app.delete("/api/deleteCart/:deletecartitem", rc.deleteCartItem);
 
-const port = 3005;
+app.use(express.static(__dirname + "/../build"));
+
 app.listen(port, () => {
   console.log(`Server is now running on port ${port}`);
 });
