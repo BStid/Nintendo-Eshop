@@ -1,6 +1,7 @@
 # Nintendo Mock E-Shop
 This is a project using the Nintendo Amiibo API
 
+[Click here to visit the site.](https://dry-atoll-97608.herokuapp.com/)
 ## Dashboard
 Users are greated with many option of Amiibo to choose from. 
 
